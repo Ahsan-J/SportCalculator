@@ -1,7 +1,7 @@
 from django.urls import path, include
-from team import views
+from match import views
 
 urlpatterns = [
     path('', views.index),
-    path('<id>/', views.renderTeamById),
+    path('<id>/', views.renderMatchById),
 ]

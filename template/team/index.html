@@ -1,14 +1,22 @@
-<!DOCTYPE html>
-{% load static %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teams</title>
-    <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}" />
-</head>
-<body>
-    <h1>Team Template</h1>
-</body>
-</html>
+{% extends "base_generic.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="d-flex flex-row justify-content-between align-items-center">
+        <h1 class="mt-2 mb-3">Teams</h1>
+        <h1 class="mt-2 mb-3"><a href="/match">Matches</a></h1>
+      </div>
+    {% for team in teams %}
+    <div class="card p-2">
+        <div class="card-body">
+            <h3 class="card-title">{{team.name}}</h3>
+                <div class="col-md-2">
+                    <p>Location: {{team.location}}</p>
+                    <p>Contact: {{team.email}}</p>
+                    <p>Matches: <a href="/">View Matches</a></p>
+                </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock content %}
